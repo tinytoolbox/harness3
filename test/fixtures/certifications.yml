@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  completed_date: 2015-01-11
+  expiry_date: 2015-01-11
+  user_id: 
+
+two:
+  name: MyString
+  completed_date: 2015-01-11
+  expiry_date: 2015-01-11
+  user_id: 
