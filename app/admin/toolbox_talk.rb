@@ -1,4 +1,5 @@
 ActiveAdmin.register ToolboxTalk do
+  permit_params :invoice_date, :attendees, :topics, :comments, :inspections, :inspection_comments, :confirm
 
 
   # See permitted parameters documentation:
