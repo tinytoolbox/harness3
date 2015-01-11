@@ -21,4 +21,5 @@ class User < ActiveRecord::Base
 
 
   devise authentication_keys: [:login]
+  validates_formatting_of :mobile, using: :us_phone
 end
