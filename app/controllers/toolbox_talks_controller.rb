@@ -29,6 +29,7 @@ class ToolboxTalksController < ApplicationController
   # POST /toolbox_talks.json
   def create
     @toolbox_talk = ToolboxTalk.new(toolbox_talk_params)
+    @toolbox_talk.user = current_user
 
     respond_to do |format|
       if @toolbox_talk.save
