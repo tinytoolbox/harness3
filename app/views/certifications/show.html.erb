@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Certification -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Certification %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @certification.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @certification.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:completed_date) %></dt>
+      <dd><pre class="prettyprint"><%= @certification.completed_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:expiry_date) %></dt>
+      <dd><pre class="prettyprint"><%= @certification.expiry_date %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Completed date:</strong>
-  <%= @certification.completed_date %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              certifications_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_certification_path(@certification), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              certification_path(@certification),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Expiry date:</strong>
-  <%= @certification.expiry_date %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @certification.user %>
-</p>
-
-<%= link_to 'Edit', edit_certification_path(@certification) %> |
-<%= link_to 'Back', certifications_path %>
