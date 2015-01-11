@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_one :company
   has_one :role
   has_many :certifications
+  has_many :toolbox_talks
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
