@@ -1,18 +1,52 @@
-<%= simple_form_for(@toolbox_talk) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :invoice_date %>
-    <%= f.input :attendees %>
-    <%= f.input :topics %>
-    <%= f.input :comments %>
-    <%= f.input :inspections %>
-    <%= f.input :inspection_comments %>
-    <%= f.input :confirm %>
+<%= form_for @toolbox_talk, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :invoice_date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :invoice_date, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :attendees, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :attendees, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :topics, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :topics, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :comments, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :comments, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :inspections, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :inspections, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :inspection_comments, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :inspection_comments, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :confirm, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :confirm, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  toolbox_talks_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

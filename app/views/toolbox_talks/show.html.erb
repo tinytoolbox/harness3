@@ -1,44 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = ToolboxTalk -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ToolboxTalk %></h1>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @toolbox_talk.user %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:invoice_date) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.invoice_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:attendees) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.attendees %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:topics) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.topics %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:comments) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.comments %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:inspections) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.inspections %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:inspection_comments) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.inspection_comments %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:confirm) %></dt>
+      <dd><pre class="prettyprint"><%= @toolbox_talk.confirm %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Invoice date:</strong>
-  <%= @toolbox_talk.invoice_date %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              toolbox_talks_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_toolbox_talk_path(@toolbox_talk), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              toolbox_talk_path(@toolbox_talk),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Attendees:</strong>
-  <%= @toolbox_talk.attendees %>
-</p>
-
-<p>
-  <strong>Topics:</strong>
-  <%= @toolbox_talk.topics %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @toolbox_talk.comments %>
-</p>
-
-<p>
-  <strong>Inspections:</strong>
-  <%= @toolbox_talk.inspections %>
-</p>
-
-<p>
-  <strong>Inspection comments:</strong>
-  <%= @toolbox_talk.inspection_comments %>
-</p>
-
-<p>
-  <strong>Confirm:</strong>
-  <%= @toolbox_talk.confirm %>
-</p>
-
-<%= link_to 'Edit', edit_toolbox_talk_path(@toolbox_talk) %> |
-<%= link_to 'Back', toolbox_talks_path %>

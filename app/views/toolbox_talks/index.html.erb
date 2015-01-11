@@ -1,24 +1,26 @@
-<h1>Listing toolbox_talks</h1>
-
-<table>
+<%- model_class = ToolboxTalk -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ToolboxTalk %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Invoice date</th>
-      <th>Attendees</th>
-      <th>Topics</th>
-      <th>Comments</th>
-      <th>Inspections</th>
-      <th>Inspection comments</th>
-      <th>Confirm</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:invoice_date) %></th>
+      <th><%= model_class.human_attribute_name(:attendees) %></th>
+      <th><%= model_class.human_attribute_name(:topics) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:inspections) %></th>
+      <th><%= model_class.human_attribute_name(:inspection_comments) %></th>
+      <th><%= model_class.human_attribute_name(:confirm) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @toolbox_talks.each do |toolbox_talk| %>
       <tr>
-        <td><%= toolbox_talk.user %></td>
+        <td><%= toolbox_talk.id %></td>
         <td><%= toolbox_talk.invoice_date %></td>
         <td><%= toolbox_talk.attendees %></td>
         <td><%= toolbox_talk.topics %></td>
@@ -26,14 +28,21 @@
         <td><%= toolbox_talk.inspections %></td>
         <td><%= toolbox_talk.inspection_comments %></td>
         <td><%= toolbox_talk.confirm %></td>
-        <td><%= link_to 'Show', toolbox_talk %></td>
-        <td><%= link_to 'Edit', edit_toolbox_talk_path(toolbox_talk) %></td>
-        <td><%= link_to 'Destroy', toolbox_talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l toolbox_talk.created_at, format: :long %></td>
+        <td>
+          <%= link_to toolbox_talk_path(toolbox_talk), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to toolbox_talk_path(toolbox_talk), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Toolbox talk', new_toolbox_talk_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_toolbox_talk_path,
+            :class => 'btn btn-primary' %>
