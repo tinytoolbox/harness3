@@ -1,0 +1,18 @@
+<%= simple_form_for(@toolbox_talk) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :invoice_date %>
+    <%= f.input :attendees %>
+    <%= f.input :topics %>
+    <%= f.input :comments %>
+    <%= f.input :inspections %>
+    <%= f.input :inspection_comments %>
+    <%= f.input :confirm %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

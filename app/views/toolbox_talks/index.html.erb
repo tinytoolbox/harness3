@@ -1,0 +1,39 @@
+<h1>Listing toolbox_talks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Invoice date</th>
+      <th>Attendees</th>
+      <th>Topics</th>
+      <th>Comments</th>
+      <th>Inspections</th>
+      <th>Inspection comments</th>
+      <th>Confirm</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toolbox_talks.each do |toolbox_talk| %>
+      <tr>
+        <td><%= toolbox_talk.user %></td>
+        <td><%= toolbox_talk.invoice_date %></td>
+        <td><%= toolbox_talk.attendees %></td>
+        <td><%= toolbox_talk.topics %></td>
+        <td><%= toolbox_talk.comments %></td>
+        <td><%= toolbox_talk.inspections %></td>
+        <td><%= toolbox_talk.inspection_comments %></td>
+        <td><%= toolbox_talk.confirm %></td>
+        <td><%= link_to 'Show', toolbox_talk %></td>
+        <td><%= link_to 'Edit', edit_toolbox_talk_path(toolbox_talk) %></td>
+        <td><%= link_to 'Destroy', toolbox_talk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Toolbox talk', new_toolbox_talk_path %>

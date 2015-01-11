@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @toolbox_talk.user %>
+</p>
+
+<p>
+  <strong>Invoice date:</strong>
+  <%= @toolbox_talk.invoice_date %>
+</p>
+
+<p>
+  <strong>Attendees:</strong>
+  <%= @toolbox_talk.attendees %>
+</p>
+
+<p>
+  <strong>Topics:</strong>
+  <%= @toolbox_talk.topics %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @toolbox_talk.comments %>
+</p>
+
+<p>
+  <strong>Inspections:</strong>
+  <%= @toolbox_talk.inspections %>
+</p>
+
+<p>
+  <strong>Inspection comments:</strong>
+  <%= @toolbox_talk.inspection_comments %>
+</p>
+
+<p>
+  <strong>Confirm:</strong>
+  <%= @toolbox_talk.confirm %>
+</p>
+
+<%= link_to 'Edit', edit_toolbox_talk_path(@toolbox_talk) %> |
+<%= link_to 'Back', toolbox_talks_path %>
