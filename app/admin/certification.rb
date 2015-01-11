@@ -1,4 +1,5 @@
 ActiveAdmin.register Certification do
+  permit_params :name, :completed_date, :expiry_date
 
 
   # See permitted parameters documentation:
