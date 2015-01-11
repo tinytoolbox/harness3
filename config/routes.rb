@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roles
+
   resources :certifications
 
   resources :toolbox_talks
